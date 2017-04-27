@@ -50,9 +50,6 @@
             if (response.status === 'connected') {
                 // Logged into your app and Facebook.
                 testAPI();
-                FB.api('/me/picture', function (response) {
-                    console.log(response); //response is the basic user object
-                });
             } else {
                 // The person is not logged into your app or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' +
@@ -114,6 +111,9 @@
                 console.log('Successful login for: ' + response.name);
                 document.getElementById('status').innerHTML =
                     'Thanks for logging in, ' + response.name + '!';
+            });
+            FB.api('/me/picture', function (response) {
+                console.log(response);
             });
         }
     </script>
